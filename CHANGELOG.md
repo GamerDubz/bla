@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- **CrackMe v9 `seal.json` DELETE fail-closed (red 2026-11-10):** `loadSeal()` now throws `integrity check failed: seal.json missing` on absence instead of letting ENOENT soft-fold to `[license] DENIED` (indistinguishable from a wrong key). Skill B principle: pinned sibling digests must fail-closed on absence. Fixture/cleartext tests cover the invariant; published `challenge/v9/hardened` still needs a release-secret rebuild to absorb the host fix.
+
 ## [3.2.2] — 2026-11-09
 
 Patch extending opt-in `sidecarEntangle` to **Electron ASAR archive-note companions**.
